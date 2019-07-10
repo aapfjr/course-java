@@ -2,23 +2,14 @@ package com.algaworks.adestramento;
 
 public class Treinador extends Pessoa {
 
-	private String especialidade;
+	private String funcao;
 
-	public void seApresentar() {
-		System.out.println(
-				"Prazer sou o " + getNome() + ", tenho " + getIdade() + " anos e sou " + getEspecialidade() + "!");
+	public String getFuncao() {
+		return funcao;
 	}
 
-	public void ensinarSentar(Animal animal) {
-		System.out.println(animal.getNome() + ", hora de sentar! ... Isso muito bem!");
-	}
-
-	public String getEspecialidade() {
-		return especialidade;
-	}
-
-	public void setEspecialidade(String especialidade) {
-		this.especialidade = especialidade;
+	public void setFuncao(String funcao) {
+		this.funcao = funcao;
 	}
 
 }
