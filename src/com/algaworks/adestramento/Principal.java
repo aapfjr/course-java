@@ -11,6 +11,12 @@ public class Principal {
 		
 		jogador.seApresentar();
 		jogador.seAindaJoga();
+		
+		Treinador treinador = new Treinador();
+		treinador.setNome("Chatonildo Charlatão");
+		treinador.setIdade(53);
+		treinador.setFuncao("Preparador Físico");
+		treinador.seApresentar();
 	}
 	
 }
