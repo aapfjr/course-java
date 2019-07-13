@@ -14,7 +14,7 @@ public class MaquinaCafe {
 
 	public void fazerCafe(int quantidade) {
 		if (acucarDisponivel < quantidade) {
-			System.out.println("Não há mais açúcar suficiente para fazer seu café! Sobraram apenas " + acucarDisponivel + "g de açúcar!");
+			System.out.println("Desculpe mais seu café saiu s/ açúcar! Pois sobraram apenas " + acucarDisponivel + "g de açúcar!");
 		} else {
 			acucarDisponivel -= quantidade;
 			System.out.println("Seu cafezinho está sendo feito com " + quantidade + "g de açúcar!");
