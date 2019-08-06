@@ -58,8 +58,6 @@ public class TestandoClasseMath {
 		System.out.println("Arredondando o NÚMERO ALEATÓRIO para o MAIOR INTEIRO = " + Math.ceil(numeroAleatorio));
 		System.out.println("Arredondando o NÚMERO ALEATÓRIO de DOUBLE para o INTEIRO = " + Math.round(numeroAleatorio));
 		
-		
-		
 	}
 
 }
