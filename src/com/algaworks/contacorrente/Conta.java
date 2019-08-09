@@ -11,10 +11,6 @@ public class Conta {
 	protected String dataVencimento;
 	protected SituacaoConta situacaoConta;
 
-	public void cancelar() {
-
-	}
-
 	public Conta() {
 		this.situacaoConta = SituacaoConta.PENDENTE;
 	}
@@ -24,6 +20,17 @@ public class Conta {
 		this.valor = valor;
 		this.dataVencimento = dataVencimento;
 		this.situacaoConta = situacaoConta;
+	}
+	
+	public void cancelar() throws OperacaoContaException {
+		if (getSituacaoConta().equals(SituacaoConta.PAGA)) {
+			throw new OperacaoContaException("ERROR, não pode cancelar uma conta que se encontra PAGA!");
+		} else if(getSituacaoConta().equals(SituacaoConta.CANCELADA)) {
+			throw new OperacaoContaException("ERROR, não pode cancelar uma conta que se encontra CANCELADA!");
+		} else {
+			setSituacaoConta(SituacaoConta.CANCELADA);
+			System.out.println("OK, sua conta " + getDescricao() + ", foi cancelada com sucesso!");
+		}
 	}
 
 	public String getDescricao() {

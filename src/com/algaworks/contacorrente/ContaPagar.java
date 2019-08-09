@@ -8,10 +8,6 @@ public class ContaPagar extends Conta {
 
 	private Fornecedor fornecedor;
 
-	public void pagar() {
-
-	}
-
 	public ContaPagar() {
 	}
 
@@ -20,6 +16,15 @@ public class ContaPagar extends Conta {
 		this.descricao = descricao;
 		this.valor = valor;
 		this.dataVencimento = dataVencimento;
+	}
+
+	public void pagar() throws OperacaoContaException {
+		if (!this.getSituacaoConta().equals(SituacaoConta.PENDENTE)) {
+			throw new OperacaoContaException("Não é possível pagar, pois sua conta encontra-se: " + getSituacaoConta());
+		} else {
+			setSituacaoConta(SituacaoConta.PAGA);
+			System.out.println("Sua conta foi paga com sucesso!");
+		}
 	}
 
 	public Fornecedor getFornecedor() {

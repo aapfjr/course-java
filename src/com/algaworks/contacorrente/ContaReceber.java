@@ -8,21 +8,23 @@ public class ContaReceber extends Conta {
 
 	private Cliente cliente;
 
-	public void receber() {
+	public void receber() throws OperacaoContaException {
 		if (!getSituacaoConta().equals(SituacaoConta.PENDENTE)) {
-			System.out.println("Não é possível ser recebida, pois sua conta encontra-se: " + getSituacaoConta());
+			throw new OperacaoContaException(
+					"Não é possível ser recebida, pois sua conta encontra-se: " + getSituacaoConta());
 		} else {
 			setSituacaoConta(SituacaoConta.PAGA);
 			System.out.println("Sua conta foi recebida com sucesso!");
 		}
 	}
 
-	public void cancelar() {
+	public void cancelar() throws OperacaoContaException {
 		if (getValor() < 50000D && !getSituacaoConta().equals(SituacaoConta.CANCELADA)) {
 			setSituacaoConta(SituacaoConta.CANCELADA);
 			System.out.println("Sua conta " + getDescricao() + " -- " + getValor() + ", foi cancelada com sucesso!");
 		} else {
-			System.out.println("Desculpe, mas seu recebimento não é possível cancelar. Procure seu gerente!");
+			throw new OperacaoContaException(
+					"Desculpe, mas seu recebimento não é possível cancelar. Procure seu gerente!");
 		}
 	}
 
